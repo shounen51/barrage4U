@@ -1,0 +1,7 @@
+discord
+twitchio==1.1.0
+pillow
+requests
+pyqt5
+pywin32
+pytchat
