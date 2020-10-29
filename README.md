@@ -1,2 +1,2 @@
-# Barrage_from_discord
-fetch text from discord and print on screen
+# Barrage4U
+fetch text from discord, twtich, youtube and print on screen
