@@ -35,7 +35,7 @@ from ui.full_screen import B_form
 from utils.button_event import btn_events
 from utils.utils import load_ini, save_ini
 from utils.bot_thread import bot_thread
-from barrages.classic_type import Btype_CLASSIC_thread
+from barrage_types.classic_type import Btype_CLASSIC_thread
 from configs import bot_list, default_setting
 
 

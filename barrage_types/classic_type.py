@@ -120,7 +120,7 @@ class Btype_CLASSIC_thread(QThread):
         name = _dict['name']
         new_label = self.canvas.new_barrage_with_emote(Bid, name, texts, x, y, w, h, self.font_size)
         if _dict['trajectory'] == -1: # welcome
-            self.title_barrage =  {
+            self.title_barrage = {
                 'label' : new_label,
                 'xywh' : _dict['xywh'],
                 'trajectory' : -1,
@@ -129,13 +129,11 @@ class Btype_CLASSIC_thread(QThread):
             }
             self.FIRST_ONE = 'showing'
         else:
-            self.new_barrages[str(Bid)] = {
-                'label' : new_label,
-                'xywh' : _dict['xywh'],
-                'dis' : ((x + w)/self.fps)/self.BARRAGE_ALIVE_TIME,
+            self.new_barrages[str(Bid)] = barrage(new_label, _dict['xywh'], args={
+                'dis' : -((x + w)/self.fps)/self.BARRAGE_ALIVE_TIME,
                 'trajectory' : _dict['trajectory'],
                 'shooting' : True
-            }
+            })
 
     def ui_move_label(self, _dict):
         label = _dict['label']
@@ -156,10 +154,10 @@ class Btype_CLASSIC_thread(QThread):
                 self.FIRST_ONE = 'over'
                 self.trajectoris[0] -= self.MAX_BARRAGE_IN_ONE_LINE
         for _id in self.barrages.keys():
-            x, y, w, h = self.barrages[_id]['xywh']
+            x, y, w, h = self.barrages[_id].get_xywh()
             dis = self.barrages[_id]['dis']
-            label = self.barrages[_id]['label']
-            new_x = x - dis
+            label = self.barrages[_id].get_label()
+            new_x = x + dis
             if new_x + w <= 0: #out of screen
                 self.del_list.append(_id)
                 if self.barrages[_id]['trajectory'] == -2:
@@ -169,7 +167,7 @@ class Btype_CLASSIC_thread(QThread):
                     'label' : label,
                     'xy' : (int(new_x), y)
                 })
-                self.barrages[_id]['xywh'] = (new_x, y, w, h)
+                self.barrages[_id].set_xywh((new_x, y, w, h))
                 if self.barrages[_id]['shooting']:
                     if new_x + w < self.canvas.width():
                         trajectory = self.barrages[_id]['trajectory']
