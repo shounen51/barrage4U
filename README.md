@@ -12,7 +12,7 @@
 - [ ] 支援多種形式彈幕 (預計未來開發，歡迎提供創意彈幕形式)
 
 ## 展示
-<img src="assets/demo1.gif" width="480"/>   <img src="assets/demo2.gif" width="480"/>
+<img src="assets/demo1.gif" width="400"/>   <img src="assets/demo2.gif" width="400"/>
 
 ## 平台設定
 ### - Discord
