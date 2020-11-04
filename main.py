@@ -65,15 +65,15 @@ class MainWindow(QMainWindow):
 
     def set_status(self, status):
         self.status = status
-        # if status == 0:
-        #     self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/waiting.png")}')
-        #     self.ui.btn_login.setText('登入頻道')
-        # elif status == 1:
-        #     self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/logining.png")}')
-        #     self.ui.btn_login.setText('登入中')
-        # elif status == 2:
-        #     self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/fire.png")}')
-        #     self.ui.btn_login.setText('登入完成')
+        if status == 0:
+            self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/waiting.png")}')
+            self.ui.btn_login.setText('登入頻道')
+        elif status == 1:
+            self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/logining.png")}')
+            self.ui.btn_login.setText('登入中')
+        elif status == 2:
+            self.ui.label_main.setStyleSheet('QLabel {background-image : url("./src/fire.png")}')
+            self.ui.btn_login.setText('登入完成')
 
     def set_platform_when_logining(self, platform):
         self.platform = platform

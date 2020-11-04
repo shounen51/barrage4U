@@ -12,7 +12,8 @@ default_setting = {
     'canvas':{
         'cover':'True',
         'avoid_crosshair':'True',
-        'scrolling_text':'彈幕開啟中'
+        'fps':'60',
+        'scrolling_text':''
     },
     'barrage':{
         'size':'36',
@@ -24,11 +25,11 @@ default_setting = {
         'font':'微軟正黑體 (未作用)' #not yat
     },
     'discord':{
-        'channel':'彈幕頻道',
+        'channel':'',
         'emote':'True'
     },
     'twitch':{
-        'channel':'solitarymaple_',
+        'channel':'',
         'emote':'True',
         'channel_id':''
     },

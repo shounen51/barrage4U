@@ -1,12 +1,26 @@
 import logging
 import threading
 import time
+import random
 
 from configs import platform_list
 from secret.bot_secret import discord_token
 
 chats = {
-    'aaa':'666666'
+    'fu6kme_':'666666',
+    'lsls8787':'都看到一堆手電筒了還選隱鬼是斗M喔',
+    'Km55489':'我不喜歡吃苦瓜',
+    'Eeggggg0':'66666666',
+    '溫蒂':'我叫我阿嬤來打都比你強，而且她已經過世了',
+    '散步牛奶':'帶手電筒跟著鬼跑的都小王八蛋',
+    'mad_Steve':'What\'s this game?',
+    '魔法阿公':'苦瓜是歷史的罪人',
+    'yukiko88':'請問小屋到底要怎麼追人？',
+    '東亞病夫':'這個不修機的在幹嘛啦',
+    'ssgew859':'?????',
+    'james9576':'我每次鋼筋鐵骨都會被吃掉',
+    '看衰仔':'這場應該四殺',
+    'labmen007':'ZZZZZZZ'
 }
 class demo_bot(threading.Thread):
     platform = platform_list[0]
@@ -33,7 +47,7 @@ class demo_bot(threading.Thread):
         while self.go:
             for name in chats:
                 self.texts[name] = [chats[name]]
-                time.sleep(1)
+                time.sleep(random.random() + 1)
 
     def fetch_text(self):
         _list = self.texts
