@@ -1,7 +1,10 @@
 # 彈幕聊天室
 這是一個給實況主使用的聊天室截取工具，不同於一般實況主使用的工具是一塊區域以滾動式顯示，此工具是將聊天室內容以彈幕方式發送在實況主的畫面上。
 
-##特色
+## 下載
+[點此從專案中下載](https://github.com/shounen51/barrage4U/raw/main/exe/barrage4U.zip)
+
+## 特色
 - [x] 支援三大平台--discord, twitch, youtube
 - [x] 支援twitch貼圖
 - [x] 多種客製化設定
