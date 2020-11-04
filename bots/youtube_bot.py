@@ -13,10 +13,22 @@ class youtube_bot():
     title_tag = '@title'
     def __init__(self, main, channel):
         self.main = main
-        self.channel = channel
+        self.__fetch_channel(channel)
         self.texts = {}
         self.TAKING = False
         self.READY = False
+
+    def __fetch_channel(self, channel):
+        temp = channel
+        if '/' in channel:
+            temp = channel.split('/')[-1]
+            if '?' in temp:
+                args = temp.split('?')[-1]
+                args = args.split('&')
+                for arg in args:
+                    if arg.startswith('v='):
+                        temp = arg.replace('v=','')
+        self.channel = temp
 
     def login_and_run(self):
         loop = asyncio.new_event_loop()

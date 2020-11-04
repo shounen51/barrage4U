@@ -59,7 +59,7 @@ class Btype_CLASSIC_thread(QThread):
         self.NEWING = False
         self.FIRST_ONE = 'init' # init, showing, over
         self.MAX_BARRAGE_IN_ONE_LINE = 20
-        self.BARRAGE_TAIL = 301 # AN invisible tail of every barrage to make more space for each barrage in the same trajectory.
+        self.BARRAGE_TAIL = 201 # AN invisible tail of every barrage to make more space for each barrage in the same trajectory.
         self.next_Bid = 1
         self.font_h = 10
         self.texts_dict = {}

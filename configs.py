@@ -1,4 +1,4 @@
-platform_list = ['discord', 'twitch', 'youtube']
+platform_list = ['discord', 'twitch', 'youtube', 'demo']
 twitch_emote_url = 'https://static-cdn.jtvnw.net/emoticons/v1'
 twitch_emote_list_url = 'https://api.twitchemotes.com/api/v4/channels'
 
@@ -12,7 +12,7 @@ default_setting = {
     'canvas':{
         'cover':'True',
         'avoid_crosshair':'True',
-        'scrolling_text':''
+        'scrolling_text':'彈幕開啟中'
     },
     'barrage':{
         'size':'36',
@@ -34,10 +34,14 @@ default_setting = {
     },
     'youtube':{
         'channel':''
+    },
+    'demo':{
+        'channel':''
     }
 }
 
 from bots.discord_bot import discord_bot
 from bots.twitch_bot import twitch_bot
 from bots.youtube_bot import youtube_bot
-bot_list = [discord_bot, twitch_bot, youtube_bot]
+from bots.demo_bot import demo_bot
+bot_list = [discord_bot, twitch_bot, youtube_bot, demo_bot]

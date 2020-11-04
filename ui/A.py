@@ -127,7 +127,7 @@ class A_form():
 
         self.label_font = my_label(self.gb_barrage)
         self.label_font.setFont(self.font9)
-        self.label_font.setGeometry(QtCore.QRect(20, 150, 130, 23))
+        self.label_font.setGeometry(QtCore.QRect(20, 150, 230, 23))
         self.label_font.setObjectName("label_font")
 
         """ Twitch """
@@ -192,10 +192,10 @@ class A_form():
 
         self.gb_barrage.setTitle(_translate("MainWindow", "彈幕設定"))
         self.label_size.setText(_translate("MainWindow", "※字體大小"))
-        self.label_time.setText(_translate("MainWindow", "※存活時間"))
+        self.label_time.setText(_translate("MainWindow", "※顯示時間"))
         self.label_alpha.setText(_translate("MainWindow", "字體透明"))
         self.cb_show_name.setText(_translate("MainWindow", "顯示觀眾名稱"))
-        self.label_font.setText(_translate("MainWindow", "※部分功能重新啟動程式後生效"))
+        self.label_font.setText(_translate("MainWindow", "※部分功能需要重新啟動程式後生效"))
         
         self.gb_twitch.setTitle(_translate("MainWindow", "Twitch專屬表情符號"))
         self.label_twitch_id.setText(_translate("MainWindow", "頻道ID"))

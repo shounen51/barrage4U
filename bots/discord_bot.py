@@ -37,7 +37,7 @@ class discord_bot(discord.Client):
             if "\n" in message.content:
                 await message.channel.send("彈幕只能單行啦，87喔" + author)
             elif "http" in message.content:
-                await message.channel.send(author + "，別用網址發彈幕，有點常識好嗎？")
+                await message.channel.send(author + "，別用網址發彈幕好嗎？")
             else:
                 words = []
                 if not message.content == '':
@@ -50,7 +50,7 @@ class discord_bot(discord.Client):
                     self.texts[author] = words
 
         elif str(message.channel).startswith("Direct Message"):
-            await message.channel.send("密三小喔，少跟我裝熟滾啦")
+            await message.channel.send("使用上若有任何疑問請到 https://github.com/shounen51/barrage4U 詢問")
 
     def fetch_text(self):
         _list = self.texts
@@ -62,4 +62,6 @@ class discord_bot(discord.Client):
     def too_busy(self):
         self.BUSY = True
         logging.info('bot is busy now.')
-
+        
+    def close(self):
+        pass

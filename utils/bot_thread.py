@@ -66,6 +66,12 @@ class bot_thread():
                     words = words_dict[name]
                     if self.count_length(words):
                         labels_dict[name] = words
+            # demo
+            elif self.bot_platform == platform_list[3]:
+                for name in words_dict.keys():
+                    words = words_dict[name]
+                    if self.count_length(words):
+                        labels_dict[name] = words
             return labels_dict
         else:
             return {}
