@@ -23,7 +23,6 @@ class A_form():
         """main"""
         self.label_main = QtWidgets.QLabel(Form)
         self.label_main.setGeometry(QtCore.QRect(10, 10, 380, 280))
-        # self.label_main.setStyleSheet('QLabel {background-image : url("./src/waiting.png")}')
         self.label_main.setObjectName("label_main")
 
         self.combo_platform = my_ComboBox(Form)
@@ -67,7 +66,7 @@ class A_form():
         """ canvas """
         self.gb_canvas = my_gb(Form)
         self.gb_canvas.setFont(self.font12)
-        self.gb_canvas.setGeometry(QtCore.QRect(420, 20, 260, 100))
+        self.gb_canvas.setGeometry(QtCore.QRect(420, 20, 260, 130))
 
         self.cb_on_top = my_cb(self.gb_canvas)
         self.cb_on_top.setFont(self.font12)
@@ -81,10 +80,20 @@ class A_form():
         self.cb_avoid_crosshair.setObjectName("cb_avoid_crosshair")
         self.cb_avoid_crosshair.setChecked(True)
 
+        self.label_scrolling = my_label(self.gb_canvas)
+        self.label_scrolling.setFont(self.font12)
+        self.label_scrolling.setGeometry(QtCore.QRect(15, 90, 76, 21))
+        self.label_scrolling.setObjectName("label_scrolling")
+        self.label_scrolling.setAlignment(Qt.AlignCenter)
+
+        self.edit_scrolling = my_line_edit(self.gb_canvas)
+        self.edit_scrolling.setFont(self.font12)
+        self.edit_scrolling.setGeometry(QtCore.QRect(85, 90, 165, 21))
+
         """ barrage """
         self.gb_barrage = my_gb(Form)
         self.gb_barrage.setFont(self.font12)
-        self.gb_barrage.setGeometry(QtCore.QRect(420, 140, 260, 181))
+        self.gb_barrage.setGeometry(QtCore.QRect(420, 170, 260, 181))
 
         self.cb_show_name = my_cb(self.gb_barrage)
         self.cb_show_name.setFont(self.font12)
@@ -133,7 +142,7 @@ class A_form():
         """ Twitch """
         self.gb_twitch = my_gb(Form)
         self.gb_twitch.setFont(self.font12)
-        self.gb_twitch.setGeometry(QtCore.QRect(420, 340, 260, 90))
+        self.gb_twitch.setGeometry(QtCore.QRect(420, 370, 260, 90))
 
         self.label_twitch_id = my_label(self.gb_twitch)
         self.label_twitch_id.setFont(self.font12)
@@ -149,7 +158,7 @@ class A_form():
 
         self.label_twitch_thanks = my_label(self.gb_twitch)
         self.label_twitch_thanks.setFont(self.font9)
-        self.label_twitch_thanks.setGeometry(QtCore.QRect(20, 60, 231, 21))
+        self.label_twitch_thanks.setGeometry(QtCore.QRect(15, 60, 240, 21))
         self.label_twitch_thanks.setObjectName("label_twitch_thanks")
 
         """ not ui """
@@ -189,6 +198,7 @@ class A_form():
         self.gb_canvas.setTitle(_translate("MainWindow", "彈幕畫布設定"))
         self.cb_on_top.setText(_translate("MainWindow", "彈幕視窗置於頂部"))
         self.cb_avoid_crosshair.setText(_translate("MainWindow", "彈幕避開遊戲準心"))
+        self.label_scrolling.setText(_translate("MainWindow", "跑馬燈"))
 
         self.gb_barrage.setTitle(_translate("MainWindow", "彈幕設定"))
         self.label_size.setText(_translate("MainWindow", "※字體大小"))
@@ -199,7 +209,8 @@ class A_form():
         
         self.gb_twitch.setTitle(_translate("MainWindow", "Twitch專屬表情符號"))
         self.label_twitch_id.setText(_translate("MainWindow", "頻道ID"))
-        self.label_twitch_thanks.setText(_translate("MainWindow", "※感謝https://twitchemotes.com/提供API"))
+        self.label_twitch_thanks.setText(_translate("MainWindow", u'<a href="https://twitchemotes.com/" style="color:#5577ff;"><b>※感謝https://twitchemotes.com/提供API</b></a>'))
+        self.label_twitch_thanks.setOpenExternalLinks(True)
 
         self.btn_save.setText(_translate("MainWindow", "儲存設定"))
         self.btn_re_exec.setText(_translate("MainWindow", "重新開啟"))

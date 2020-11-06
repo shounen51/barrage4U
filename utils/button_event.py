@@ -40,20 +40,34 @@ class btn_events():
     def btn_save(self):
         logging.info('btn_save clicked')
         try:
+            bot_platform = platform_list[self.main.ui.combo_platform.currentIndex()]
+            bot_channel = self.main.ui.edit_channel.text()
+
+            Bontop = self.main.ui.cb_on_top.isChecked()
+            Bcrosshair = self.main.ui.cb_avoid_crosshair.isChecked()
+            Bscrolling = self.main.ui.edit_scrolling.text()
+
+            Bname = self.main.ui.cb_show_name.isChecked()
             text = self.main.ui.edit_size.text()
             Bsize = abs(int(text))
             text = self.main.ui.edit_time.text()
             Btime = abs(int(text))
-            bot_platform = platform_list[self.main.ui.combo_platform.currentIndex()]
-            bot_channel = self.main.ui.edit_channel.text()
-            self.main.modfy_setting('barrage', 'size', Bsize)
-            self.main.modfy_setting('barrage', 'alive_time', Btime)
+            Balpha = self.main.ui.sli_alpha.value()
+
             self.main.modfy_setting('connect', 'platform', bot_platform)
             self.main.modfy_setting(bot_platform, 'channel', bot_channel)
-            save_ini('./setting.ini', self.main.setting)
-        except:
-            self.main.ui.edit_size.setText(default_setting['barrage']['size'])
-            self.main.ui.edit_time.setText(default_setting['barrage']['alive_time'])
+            self.main.modfy_setting('canvas', 'cover', Bontop)
+            self.main.modfy_setting('canvas', 'avoid_crosshair', Bcrosshair)
+            self.main.modfy_setting('canvas', 'scrolling_text', Bscrolling)
+            self.main.modfy_setting('barrage', 'name', Bname)
+            self.main.modfy_setting('barrage', 'size', Bsize)
+            self.main.modfy_setting('barrage', 'alive_time', Btime)
+            self.main.modfy_setting('barrage', 'alpha', Balpha)
+        except Exception as e:
+            logging.warning('save setting.ini failed.')
+            logging.error(e)
+            return
+        save_ini('./setting.ini', self.main.setting)
 
     def btn_re_exec(self):
         logging.info('btn_re_exec clicked')
