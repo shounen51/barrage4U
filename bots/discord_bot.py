@@ -7,10 +7,11 @@ from secret.bot_secret import discord_token
 class discord_bot(discord.Client):
     platform = platform_list[0]
     title_tag = '@title'
-    def __init__(self, main, channel):
+    def __init__(self, main, args):
         discord.Client.__init__(self)
         self.main = main
-        self.channel = channel
+        self.server = args['server']
+        self.channel = args['channel']
         self.texts = {}
         self.EMOTE_MODE = self.main.from_setting(self.platform, 'emote', 'bool')
         self.TAKING = False
@@ -30,8 +31,7 @@ class discord_bot(discord.Client):
         # don't respond to ourselves
         if message.author == self.user:
             return
-
-        if str(message.channel) == self.channel:
+        if str(message.channel) == self.channel and str(message.author.guild.name) == self.server:
             temp = str(message.author).split('#')
             author = "".join(temp[:-1])
             if "\n" in message.content:

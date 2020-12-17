@@ -25,6 +25,7 @@ default_setting = {
         'font':'微軟正黑體 (未作用)' #not yat
     },
     'discord':{
+        'server':'',
         'channel':'',
         'emote':'True'
     },

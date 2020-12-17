@@ -25,10 +25,10 @@ chats = {
 class demo_bot(threading.Thread):
     platform = platform_list[0]
     title_tag = '@title'
-    def __init__(self, main, channel):
+    def __init__(self, main, args):
         super().__init__()
         self.main = main
-        self.channel = channel
+        self.channel = args['channel']
         self.texts = {}
         self.EMOTE_MODE = self.main.from_setting(self.platform, 'emote', 'bool')
         self.TAKING = False

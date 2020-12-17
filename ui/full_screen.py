@@ -104,7 +104,7 @@ class B_form(canvas_win):
             else:
                 w, h = self.get_text_w_h(word)
                 length += w
-        return length, h
+        return length + 2, h
 
     def new_barrage_with_emote(self, Bid, name, words:list, x, y, w, h, size=36):
         imgs = []

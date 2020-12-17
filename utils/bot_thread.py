@@ -12,9 +12,9 @@ class bot_thread():
         self.text_list = []
         self.emote_list = []
 
-    def login(self, bot_platform, bot_channel):
+    def login(self, bot_platform, bot_args):
         if not self.LOGIN:
-            self.bot = bot_list[platform_list.index(bot_platform)](self.main, bot_channel)
+            self.bot = bot_list[platform_list.index(bot_platform)](self.main, bot_args)
             self.bot_platform = bot_platform
             self.LOGIN = True
             self.t = threading.Thread(target=self.__bot_login__, )

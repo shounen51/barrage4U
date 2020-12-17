@@ -11,9 +11,9 @@ class youtube_bot():
     platform = platform_list[2]
     welcome = [""]
     title_tag = '@title'
-    def __init__(self, main, channel):
+    def __init__(self, main, args):
         self.main = main
-        self.__fetch_channel(channel)
+        self.__fetch_channel(args['channel'])
         self.texts = {}
         self.TAKING = False
         self.READY = False

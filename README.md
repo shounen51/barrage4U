@@ -16,7 +16,10 @@
 
 ## 平台設定
 ### - Discord
-待製作
+透過以下網址可以將彈幕機器人加入discord伺服器(需要伺服器管理權限)
+https://discord.com/api/oauth2/authorize?client_id=752913499637809233&permissions=0&scope=bot
+在加入之後讓機器人有權限監聽想要發彈幕的文字頻道
+啟動程式之後輸入discord伺服器以及該頻道之後即可
 
 ### - Twitch
 在twitch平台上需要輸入的是實況主的ID而非使用名稱，ID會顯示在網址列，以木棉花官方頻道為例就是輸入muse_tw。

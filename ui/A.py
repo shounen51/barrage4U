@@ -34,6 +34,11 @@ class A_form():
         self.combo_platform.lineEdit().setReadOnly(True)
         self.combo_platform.lineEdit().setAlignment(Qt.AlignCenter)
 
+        self.edit_server = my_line_edit(Form)
+        self.edit_server.setFont(self.font16)
+        self.edit_server.setGeometry(QtCore.QRect(50, 350, 145, 40))
+        self.edit_server.setAlignment(Qt.AlignCenter)
+
         self.edit_channel = my_line_edit(Form)
         self.edit_channel.setFont(self.font16)
         self.edit_channel.setGeometry(QtCore.QRect(50, 350, 300, 40))
@@ -191,6 +196,7 @@ class A_form():
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("MainWindow", "彈幕機器人 V1.0"))
         self.btn_login.setText(_translate("MainWindow", "登入頻道"))
+        self.edit_server.setPlaceholderText(_translate("MainWindow", "server"))
         self.edit_channel.setPlaceholderText(_translate("MainWindow", "channel"))
         self.name_label.setText(_translate("MainWindow", "by shounen51"))
         self.cb_optional.setText(_translate("MainWindow", "開啟設定選單→"))
@@ -219,9 +225,33 @@ class A_form():
     def init_platform_combobox(self):
         self.combo_platform.addItems(platform_list)
 
+    def change_platform_combobox(self, index):
+        if index == 0: # discord
+            self.edit_channel.setPlaceholderText("channel")
+            bot_platform = platform_list[index]
+            server = self.main.from_setting(bot_platform, 'server', 'str')
+            channel = self.main.from_setting(bot_platform, 'channel', 'str')
+            self.edit_server.setText(server)
+            self.edit_channel.setText(channel)
+            self.edit_server.setVisible(True)
+            self.edit_channel.setGeometry(QtCore.QRect(205, 350, 145, 40))
+        elif index == 2: # YT
+            self.edit_channel.setPlaceholderText("video ID")
+            self.edit_channel.setText('')
+            self.edit_server.setVisible(False)
+            self.edit_channel.setGeometry(QtCore.QRect(50, 350, 300, 40))
+        else:
+            self.edit_channel.setPlaceholderText("channel")
+            bot_platform = platform_list[index]
+            channel = self.main.from_setting(bot_platform, 'channel', 'str')
+            self.edit_channel.setText(channel)
+            self.edit_server.setVisible(False)
+            self.edit_channel.setGeometry(QtCore.QRect(50, 350, 300, 40))
+
     def load_setting(self):
         platform = self.main.from_setting('connect', 'platform', 'str')
         channel = self.main.from_setting(platform, 'channel', 'str')
+        server = self.main.from_setting('discord', 'server', 'str')
         cover = self.main.from_setting('canvas', 'cover', 'bool')
         avoid_crosshair = self.main.from_setting('canvas', 'avoid_crosshair', 'bool')
         # font = self.main.from_setting('barrage', 'font', 'str')
@@ -233,6 +263,8 @@ class A_form():
 
         i = self.combo_platform.findText(platform)
         self.combo_platform.setCurrentIndex(i)
+        self.change_platform_combobox(i)
+        self.edit_server.setText(server)
         self.edit_channel.setText(channel)
         # self.edit_font.setText(font)
         self.edit_size.setText(size)
@@ -245,5 +277,6 @@ class A_form():
 
     def login(self):
         self.combo_platform.setEnabled(False)
+        self.edit_server.setEnabled(False)
         self.edit_channel.setEnabled(False)
         self.btn_login.setEnabled(False)

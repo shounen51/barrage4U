@@ -29,8 +29,13 @@ class btn_events():
         logging.info('btn_login clicked')
         self.main.set_status(1)
         bot_platform = platform_list[self.main.ui.combo_platform.currentIndex()]
+        bot_server = self.main.ui.edit_server.text()
         bot_channel = self.main.ui.edit_channel.text()
-        OK = self.main.bot.login(bot_platform, bot_channel)
+        bot_args = {
+            'server':bot_server,
+            'channel':bot_channel
+        }
+        OK = self.main.bot.login(bot_platform, bot_args)
         if OK:
             self.main.modfy_setting('connect', 'platform', bot_platform)
             self.main.modfy_setting(bot_platform, 'channel', bot_channel)
@@ -41,6 +46,7 @@ class btn_events():
         logging.info('btn_save clicked')
         try:
             bot_platform = platform_list[self.main.ui.combo_platform.currentIndex()]
+            bot_server = self.main.ui.edit_server.text()
             bot_channel = self.main.ui.edit_channel.text()
 
             Bontop = self.main.ui.cb_on_top.isChecked()
@@ -56,6 +62,7 @@ class btn_events():
 
             self.main.modfy_setting('connect', 'platform', bot_platform)
             self.main.modfy_setting(bot_platform, 'channel', bot_channel)
+            self.main.modfy_setting('discord', 'server', bot_server)
             self.main.modfy_setting('canvas', 'cover', Bontop)
             self.main.modfy_setting('canvas', 'avoid_crosshair', Bcrosshair)
             self.main.modfy_setting('canvas', 'scrolling_text', Bscrolling)
@@ -77,14 +84,7 @@ class btn_events():
     def combo_platform(self):
         logging.info('combo_platform selected')
         index = self.main.ui.combo_platform.currentIndex()
-        if index == 2:
-            self.main.ui.edit_channel.setPlaceholderText("video ID")
-            self.main.ui.edit_channel.setText('')
-        else:
-            self.main.ui.edit_channel.setPlaceholderText("channel")
-            bot_platform = platform_list[index]
-            channel = self.main.from_setting(bot_platform, 'channel', 'str')
-            self.main.ui.edit_channel.setText(channel)
+        self.main.ui.change_platform_combobox(index)
 
     def cb_optional(self):
         logging.info('cb_optional checked')

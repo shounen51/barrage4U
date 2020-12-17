@@ -11,9 +11,9 @@ class twitch_bot(commands.Bot):
     platform = platform_list[1]
     welcome = ["imGlitch 這裡是 #id 的頻道"]
     title_tag = '@title'
-    def __init__(self, main, channel):
+    def __init__(self, main, args):
         self.main = main
-        self.channel = channel
+        self.channel = args['channel']
         self.TAKING = False
         self.READY = False
         self.EMOTE_MODE = self.main.from_setting(self.platform, 'emote', 'bool')
