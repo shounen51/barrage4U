@@ -50,8 +50,9 @@ class A_form():
         self.btn_login.setObjectName("btn_login")
 
         self.name_label = my_label(Form)
-        self.name_label.setGeometry(QtCore.QRect(5, 580, 100, 20))
+        self.name_label.setGeometry(QtCore.QRect(5, 535, 60, 60))
         self.name_label.setObjectName("name_label")
+        self.name_label.setStyleSheet('QLabel {background-image : url("./src/51.png")}')
 
         self.cb_optional = my_cb(Form)
         self.cb_optional.setGeometry(QtCore.QRect(295, 580, 105, 20))
@@ -198,7 +199,6 @@ class A_form():
         self.btn_login.setText(_translate("MainWindow", "登入頻道"))
         self.edit_server.setPlaceholderText(_translate("MainWindow", "server"))
         self.edit_channel.setPlaceholderText(_translate("MainWindow", "channel"))
-        self.name_label.setText(_translate("MainWindow", "by shounen51"))
         self.cb_optional.setText(_translate("MainWindow", "開啟設定選單→"))
 
         self.gb_canvas.setTitle(_translate("MainWindow", "彈幕畫布設定"))
